@@ -1,0 +1,9 @@
+{
+  "name": "cursor-chaos",
+  "main": "src/server.ts",
+  "compatibilityDate": "2023-11-30",
+  "serve": {
+    "path": "public",
+    "build": "src/client.ts"
+  }
+}

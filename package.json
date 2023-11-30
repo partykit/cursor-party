@@ -1,0 +1,16 @@
+{
+  "name": "cursor-chaos",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "partykit dev",
+    "deploy": "partykit deploy"
+  },
+  "dependencies": {
+    "partysocket": "0.0.16"
+  },
+  "devDependencies": {
+    "partykit": "0.0.39",
+    "typescript": "^5.3.2"
+  }
+}
