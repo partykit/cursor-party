@@ -1,9 +1,17 @@
 {
-  "name": "cursor-chaos",
+  "name": "cursor-party",
   "main": "src/server.ts",
   "compatibilityDate": "2023-11-30",
   "serve": {
     "path": "public",
-    "build": "src/client.ts"
+    "build": "src/client.tsx",
+    "singlePageApp": true
+  },
+  "build": {
+    "command": "esbuild src/cursors.tsx --bundle --minify --outfile=public/cursors.js --alias:react=@preact/compat --alias:react-dom=@preact/compat"
+  },
+
+  "vars": {
+    "WEBSITES": ["https://cursor-party.<username>.partykit.dev/*"]
   }
 }

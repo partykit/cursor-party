@@ -168,3 +168,4 @@ dist
 
 .partykit
 .DS_Store
+public/cursors.js
