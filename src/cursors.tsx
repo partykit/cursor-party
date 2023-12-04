@@ -9,7 +9,7 @@ function App() {
     : "default";
   return (
     <PresenceProvider
-      host="cursor-party.genmon.partykit.dev"
+      host="localhost:1999"
       room={pageId}
       presence={{
         name: "Anonymous DJ",
