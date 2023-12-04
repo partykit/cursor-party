@@ -51,7 +51,7 @@ export default class PresenceServer implements Party.Server {
 
     const homeURL = new URL(decodeURIComponent(encodedHomeURL));
 
-    if (homeURL.hostname === "localhost") {
+    if (["localhost", "127.0.0.1"].includes(homeURL.hostname)) {
       return req;
     }
 
@@ -62,6 +62,7 @@ export default class PresenceServer implements Party.Server {
         // @ts-expect-error - URLPattern is not in the TS lib
         new URLPattern(site)
     );
+
     const allowed = patterns.some((pattern) => pattern.test(matchWith));
     if (!allowed) {
       return new Response("Not Allowed", { status: 403 });

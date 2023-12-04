@@ -12,6 +12,6 @@
   },
 
   "vars": {
-    "WEBSITES": ["https://cursor-party.<username>.partykit.dev/*"]
+    "WEBSITES": ["https://cursor-party.YOUR-USERNAME-HERE.partykit.dev/*"]
   }
 }

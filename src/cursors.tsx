@@ -20,6 +20,9 @@ function App() {
 
 const cursorsRoot = document.createElement("div");
 document.body.appendChild(cursorsRoot);
+// cursors display is absolute and needs a top-level relative container
+document.documentElement.style.position = "relative";
+document.documentElement.style.minHeight = "100dvh";
 // add a classname
 cursorsRoot.classList.add("cursors-root");
 
