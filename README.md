@@ -9,10 +9,6 @@ This [PartyKit](https://www.partykit.io) project makes it easy to add multiplaye
 - run `cp .env.example .env`
 - modify `.env` to set your website URL
 - run `npm run deploy`
-- insert `<script src="https://cursor-party.<username>.partykit.dev/cursors.js"></script>` in your html
+- insert `<script src="https://cursor-party.YOUR-USERNAME-HERE.partykit.dev/cursors.js"></script>` in your html
 
 Welcome to the party, pal!
-
-### Issues
-
-- When a website pattern in `partykit.json` is not a valid regular expression, the error is is not very helpful

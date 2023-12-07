@@ -204,6 +204,24 @@ export default function PresenceProvider(props: {
       from: window?.location.href,
     },
     onMessage: (event) => handleMessage(event),
+
+    onClose: (e) =>
+      console.warn(
+        "Socket closed:",
+        e.reason ||
+          // @ts-ignore
+          e.error ||
+          e
+      ),
+    onError: (e) =>
+      console.error(
+        "Socket error:",
+        // @ts-ignore
+        e.reason ||
+          // @ts-ignore
+          e.error ||
+          e
+      ),
   });
 
   // Send initial presence when syncing

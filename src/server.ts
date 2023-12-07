@@ -59,15 +59,36 @@ export default class PresenceServer implements Party.Server {
 
     const matchWith = homeURL.origin + homeURL.pathname;
 
-    const patterns = WEBSITES.map(
-      (site) =>
+    const patterns = WEBSITES.map((site) => {
+      try {
         // @ts-expect-error - URLPattern is not in the TS lib
-        new URLPattern(site)
-    );
+        return new URLPattern(site);
+      } catch (e) {
+        console.log(
+          `
+
+⚠️  Invalid URL pattern "${site}" in .env -> WEBSITES. 
+It should be a valid input to new URLPattern(). 
+Learn more: https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API
+
+`
+        );
+        throw e;
+      }
+    });
 
     const allowed = patterns.some((pattern) => pattern.test(matchWith));
     if (!allowed) {
-      return new Response("Not Allowed", { status: 403 });
+      const errMessage = `The URL ${matchWith} does not match any allowed pattern from ${lobby.env.WEBSITES}`;
+      // @ts-expect-error we're using dom types here. apparently
+      const pair = new WebSocketPair();
+      pair[1].accept();
+      pair[1].close(1011, errMessage || "Uncaught exception when connecting");
+      return new Response(null, {
+        status: 101,
+        // @ts-expect-error we're using dom types here. apparently
+        webSocket: pair[0],
+      });
     }
 
     return req;
