@@ -5,10 +5,11 @@ import Cursors from "./presence/Cursors";
 
 declare const PARTYKIT_HOST: string;
 
+const pageId = window?.location.href
+  ? btoa(window.location.href.split(/[?#]/)[0])
+  : "default";
+
 function App() {
-  const pageId = window?.location.href
-    ? btoa(window.location.href.split(/[?#]/)[0])
-    : "default";
   return (
     <PresenceProvider
       host={PARTYKIT_HOST}
