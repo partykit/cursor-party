@@ -3,13 +3,15 @@ import { render } from "react-dom";
 import PresenceProvider from "./presence/presence-context";
 import Cursors from "./presence/Cursors";
 
+declare const PARTYKIT_HOST: string;
+
 function App() {
   const pageId = window?.location.href
     ? btoa(window.location.href.split(/[?#]/)[0])
     : "default";
   return (
     <PresenceProvider
-      host="localhost:1999"
+      host={PARTYKIT_HOST}
       room={pageId}
       presence={{
         name: "Anonymous DJ",

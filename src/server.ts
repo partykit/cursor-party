@@ -51,13 +51,15 @@ export default class PresenceServer implements Party.Server {
 
     const homeURL = new URL(decodeURIComponent(encodedHomeURL));
 
+    const WEBSITES = JSON.parse(lobby.env.WEBSITES as string) as string[];
+
     if (["localhost", "127.0.0.1"].includes(homeURL.hostname)) {
       return req;
     }
 
     const matchWith = homeURL.origin + homeURL.pathname;
 
-    const patterns = (lobby.env.WEBSITES as string[]).map(
+    const patterns = WEBSITES.map(
       (site) =>
         // @ts-expect-error - URLPattern is not in the TS lib
         new URLPattern(site)

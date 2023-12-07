@@ -4,14 +4,15 @@
   "compatibilityDate": "2023-11-30",
   "serve": {
     "path": "public",
-    "build": "src/client.tsx",
+    "build": {
+      "entry": "src/cursors.tsx",
+      "alias": {
+        "react": "@preact/compat",
+        "react-dom": "@preact/compat"
+      },
+      "outdir": "public"
+    },
+    "minify": true,
     "singlePageApp": true
-  },
-  "build": {
-    "command": "esbuild src/cursors.tsx --bundle --minify --outfile=public/cursors.js --alias:react=@preact/compat --alias:react-dom=@preact/compat"
-  },
-
-  "vars": {
-    "WEBSITES": ["https://cursor-party.YOUR-USERNAME-HERE.partykit.dev/*"]
   }
 }
