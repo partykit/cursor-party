@@ -21,9 +21,24 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div id="app">
-      <h1>🎈 Welcome to PartyKit!</h1>
-    </div>
+    <main>
+      <section id="promo">
+        <h1><img src="/PartyKit.png" id="logo"/><div>Cursor Party</div></h1>
+
+        <h2>Bring multiplayer cursors to any website with one line of code</h2>
+        <p>Get your own by <a href="https://github.com/partykit/cursor-party">following these instructions on GitHub</a>.</p>
+        <hr />
+        <h2>You’re looking at a custom Cursor Party installation</h2>
+        <p>The following websites are in the allowlist:</p>
+        <ul>
+          <li><span style="background: yellow;">WEBSITES env here</span></li>
+        </ul>
+        <p>Check the installation is working by opening two browser windows to this page and watching for the cursors. (Make sure that this website is listed above.)</p>
+        <p>Add multiplayer cursors to any site in the allowlist by copy-and-pasting the following script tag just before the closing <code>&lt;/body></code>:</p>
+        <input type="text" value="&lt;script type=&quot;module&quot; src=&quot;https://cursor-party.THIS-WEBSITE.partykit.gov/cursors.js&quot;>&lt;/script&gt;" readonly />
+        <p>To learn how to configure or customize your Cursor Party, <a href="https://github.com/partykit/cursor-party">read the documentation</a>.</p>
+      </section>
+    </main>
     <script type="module" src="/cursors.js"></script>
   </body>
 </html>

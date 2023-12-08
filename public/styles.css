@@ -1,0 +1,78 @@
+:root {
+  background: #bdc1c0;
+  color: #252525;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  "Noto Sans",
+  Helvetica,
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji";
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
+
+#promo {
+  background: white;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  max-width: 30rem;
+  width: 100%;
+  border-radius: 4px;
+}
+
+#promo h1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+#promo h2 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#promo p {
+  line-height: 1.4;
+}
+
+#promo #logo {
+  height: 4rem;
+  width: auto;
+}
+
+#promo hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 3rem auto;
+  width: 50%;
+}
+
+#promo code {
+  background: #eee;
+  font-family: monospace;
+  padding: 0.25rem;
+}
+
+#promo input {
+  width: 90%;
+  font-family: monospace;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  box-shadow: inset 1px 1px 3px #ddd;
+}
