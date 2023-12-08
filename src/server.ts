@@ -53,7 +53,7 @@ export default class PresenceServer implements Party.Server {
 
     const WEBSITES = JSON.parse(lobby.env.WEBSITES as string) as string[];
 
-    if (["localhost", "127.0.0.1"].includes(homeURL.hostname)) {
+    if (["localhost", "127.0.0.1", "0.0.0.0"].includes(homeURL.hostname)) {
       return req;
     }
 
