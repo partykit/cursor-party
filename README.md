@@ -23,7 +23,7 @@ $ vi .env  # add your PartyKit username and set your website URL
 $ npm run deploy
 ```
 
-Now add `<script type="module" src="https://cursor-party.YOUR-USERNAME-HERE.partykit.dev/cursors.js"></script>` in your HTML, just fore the closing `</body>` tag.
+Now add `<script type="module" src="https://cursor-party.YOUR-USERNAME-HERE.partykit.dev/cursors.js"></script>` in your HTML, just before the closing `</body>` tag.
 
 Get fixes and new features by periodically running `git pull`.
 
@@ -68,7 +68,7 @@ In your working directory, run `cp .env.example .env`. This sets environment var
 
 The `WEBSITES` environment variable is an allowlist. It is a JSON array of URL patterns using the [URL Patterns API](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API), and only websites that match one of the patterns will be allowed to use your PartyKit server.
 
-_(This is important because PartyKit has a free tier with usage limits. Very large websites, or supporting many websites, could mean you'll need to upgrade to a pain plan.)_
+_(This is important because PartyKit has a free tier with usage limits. Very large websites, or running cursors on websites, could mean you'll need to upgrade to a paid plan.)_
 
 Modify your `.env` to:
 
@@ -105,7 +105,7 @@ Now you can test your website. Open two browsers to your website and you should 
 
 🎈 You're done!
 
-### Keep up to date
+### Stay up to date
 
 Run `git pull` periodically in your working directory for new features and fixtures. Also run `npm install` to keep the dependencies up to date.
 
