@@ -34,10 +34,17 @@ export default function Chat() {
           } else if (event.key === "Backspace") {
             setMessage((prev) => prev.slice(0, -1));
           } else if (event.key.length === 1) {
-            setMessage((prev) => {
-              return prev.length < 30 ? prev + event.key : prev;
-            });
+            if (event.key === "/") {
+              setMessage((prev) => "");
+            } else {
+              setMessage((prev) => {
+                return prev.length < 30 ? prev + event.key : prev;
+              });
+            }
           }
+
+          event.preventDefault();
+          return false;
         }
       }
 
