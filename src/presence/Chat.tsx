@@ -20,6 +20,15 @@ export default function Chat() {
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout> | null = null;
     const handleKeyDown = (event: KeyboardEvent) => {
+      // Reset any timeouts
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+      timeout = setTimeout(() => {
+        setListening(false);
+        setMessage((prev) => "");
+      }, 10000);
+
       if (!listening) {
         if (event.key === "/") {
           setListening(true);
@@ -44,17 +53,10 @@ export default function Chat() {
           }
 
           event.preventDefault();
+          event.stopPropagation();
           return false;
         }
       }
-
-      if (timeout) {
-        clearTimeout(timeout);
-      }
-      timeout = setTimeout(() => {
-        setListening(false);
-        setMessage((prev) => "");
-      }, 10000);
     };
 
     document.addEventListener("keydown", handleKeyDown);
@@ -76,7 +78,7 @@ export default function Chat() {
     return (
       <div
         style={{
-          position: "absolute",
+          position: "fixed",
           fontSize: "12px",
           color: "white",
           borderRadius: "9999px",
