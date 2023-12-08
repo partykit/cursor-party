@@ -18,7 +18,7 @@ export default function OtherCursors() {
     bottom: 0,
     overflow: "clip",
     pointerEvents: "none" as React.CSSProperties["pointerEvents"],
-    zIndex: 1001,
+    zIndex: -1,
   };
 
   return (
