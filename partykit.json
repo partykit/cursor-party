@@ -14,5 +14,8 @@
     },
     "minify": true,
     "singlePageApp": true
+  },
+  "build": {
+    "command": "node scripts/splash-script.mjs"
   }
 }

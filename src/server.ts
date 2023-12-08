@@ -51,7 +51,9 @@ export default class PresenceServer implements Party.Server {
 
     const homeURL = new URL(decodeURIComponent(encodedHomeURL));
 
-    const WEBSITES = JSON.parse(lobby.env.WEBSITES as string) as string[];
+    const WEBSITES = JSON.parse(
+      (lobby.env.WEBSITES || "[]") as string
+    ) as string[];
 
     if (["localhost", "127.0.0.1", "0.0.0.0"].includes(homeURL.hostname)) {
       return req;
