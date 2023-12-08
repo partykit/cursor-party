@@ -41,18 +41,25 @@
 
         <script>
           if (window.__WEBSITES__) {
-            document.write(
-              `
-            <p>The following websites are in the allowlist:</p>
-        <ul>
-          <li>
-            <span style="background: yellow">
-              ${window.__WEBSITES__}
-            </span>
-          </li>
-        </ul>        
-            `
-            );
+            var websites;
+            try {
+              websites = JSON.parse(window.__WEBSITES__);
+
+              document.write(`<p>The following websites are in the allowlist:</p>`);
+              document.write(`<ul>`);
+              websites.forEach((website) => {
+                document.write(`<li><code>${website}</code></li>`);
+              });
+              document.write(`</ul>`);
+            } catch (e) {
+              document.write(
+                `<p>
+                  <span style="background: yellow">
+                    There was an error parsing the allowlist: ${e}
+                  </span>
+                </p>`
+              );
+            }
           } else {
             document.write(`
             <p>
@@ -77,7 +84,7 @@
         </p>
         <input
           type="text"
-          value='&lt;script type="module" src="https://cursor-party.THIS-WEBSITE.partykit.gov/cursors.js">&lt;/script&gt;'
+          value='&lt;script type="module" src="https://cursor-party.YOUR-PARTYKIT-USERNAME.partykit.gov/cursors.js">&lt;/script&gt;'
           readonly
         />
         <p>
