@@ -25,18 +25,18 @@ export default function Chat() {
           setListening(true);
         }
       } else {
-        if (
-          event.key.length === 1 &&
-          !event.metaKey &&
-          !event.ctrlKey &&
-          !event.altKey
-        ) {
-          if (event.key === "Enter" || event.key === "Escape") {
+        if (!event.metaKey && !event.ctrlKey && !event.altKey) {
+          if (event.key === "Enter") {
             setListening(false);
+          } else if (event.key === "Escape") {
+            setListening(false);
+            setMessage((prev) => "");
           } else if (event.key === "Backspace") {
             setMessage((prev) => prev.slice(0, -1));
-          } else {
-            setMessage((prev) => prev + event.key);
+          } else if (event.key.length === 1) {
+            setMessage((prev) => {
+              return prev.length < 30 ? prev + event.key : prev;
+            });
           }
         }
       }
@@ -45,6 +45,7 @@ export default function Chat() {
         clearTimeout(timeout);
       }
       timeout = setTimeout(() => {
+        setListening(false);
         setMessage((prev) => "");
       }, 10000);
     };
@@ -78,8 +79,8 @@ export default function Chat() {
           paddingBottom: "4px",
           paddingLeft: "8px",
           paddingRight: "8px",
-          top: "18px",
-          left: "20px",
+          top: "6px",
+          left: "6px",
         }}
       >
         {message ? message : "..."}
