@@ -23,7 +23,7 @@ $ vi .env  # add your PartyKit username and set your website URL
 $ npm run deploy
 ```
 
-Now add `<script type="module" src="https://cursor-party.YOUR-USERNAME-HERE.partykit.dev/cursors.js"></script>` in your HTML, just before the closing `</body>` tag.
+Now add `<script src="https://cursor-party.YOUR-USERNAME-HERE.partykit.dev/cursors.js"></script>` in your HTML, just before the closing `</body>` tag.
 
 Get fixes and new features by periodically running `git pull`.
 
@@ -91,10 +91,7 @@ You should see the same welcome page as before.
 Make a note of the script tag. It will look something like:
 
 ```html
-<script
-  type="module"
-  src="https://cursor-party.YOUR-USERNAME-HERE.partykit.dev/cursors.js"
-></script>
+<script src="https://cursor-party.YOUR-USERNAME-HERE.partykit.dev/cursors.js"></script>
 ```
 
 ### Add multiplayer cursors to your website

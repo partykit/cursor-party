@@ -10,7 +10,9 @@
         "react": "@preact/compat",
         "react-dom": "@preact/compat"
       },
-      "outdir": "public"
+      "outdir": "public",
+      "format": "iife",
+      "splitting": false
     },
     "minify": true,
     "singlePageApp": true
