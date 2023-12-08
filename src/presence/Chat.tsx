@@ -45,7 +45,7 @@ export default function Chat() {
             setMessage((prev) => prev.slice(0, -1));
           } else if (event.key.length === 1) {
             setMessage((prev) => {
-              return prev.length < 30 ? prev + event.key : prev;
+              return prev.length < 42 ? prev + event.key : prev;
             });
           }
 
