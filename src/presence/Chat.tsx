@@ -31,6 +31,7 @@ export default function Chat() {
 
       if (!listening) {
         if (event.key === "/") {
+          setMessage((prev) => "");
           setListening(true);
         }
       } else {
@@ -43,13 +44,9 @@ export default function Chat() {
           } else if (event.key === "Backspace") {
             setMessage((prev) => prev.slice(0, -1));
           } else if (event.key.length === 1) {
-            if (event.key === "/") {
-              setMessage((prev) => "");
-            } else {
-              setMessage((prev) => {
-                return prev.length < 30 ? prev + event.key : prev;
-              });
-            }
+            setMessage((prev) => {
+              return prev.length < 30 ? prev + event.key : prev;
+            });
           }
 
           event.preventDefault();
@@ -79,15 +76,15 @@ export default function Chat() {
       <div
         style={{
           position: "fixed",
-          fontSize: "12px",
+          fontSize: "16px",
           color: "white",
           borderRadius: "9999px",
           whiteSpace: "nowrap",
           backgroundColor: "#00f",
-          paddingTop: "4px",
-          paddingBottom: "4px",
-          paddingLeft: "8px",
-          paddingRight: "8px",
+          paddingTop: "6px",
+          paddingBottom: "6px",
+          paddingLeft: "12px",
+          paddingRight: "12px",
           top: "6px",
           left: "6px",
         }}

@@ -24,15 +24,18 @@ export default function Cursor(props: { userId: string; fill: string }) {
   const offset = 10;
   const flag = cursor.country ? `${countryCodeEmoji(cursor.country)} ` : "";
 
+  const hasMessage = cursor.message !== null;
+
   return (
     <div
       style={{
         position: "absolute",
         transform: `translate(${cursor.x - offset}px, ${cursor.y - offset}px`,
-        opacity: 0.5,
+        opacity: hasMessage ? 1.0 : 0.7,
+        zIndex: hasMessage ? 1001 : -1,
       }}
     >
-      <div style={{ filter: "blur(1px)" }}>
+      <div style={hasMessage ? {} : { filter: "blur(1px)" }}>
         {cursor.pointer === "mouse" ? (
           <MousePointer fill={props.fill} />
         ) : (
