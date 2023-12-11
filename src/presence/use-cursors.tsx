@@ -173,6 +173,11 @@ export default function useCursorTracking(
     within,
   ]);
 
+  useEffect(() => {
+    // 100ms after page load, run updateScrollDimensions
+    setTimeout(updateScrollDimensions, 100);
+  }, []);
+
   const transformCursor = (user: User) => {
     const bounds = within === "window" ? windowDimensions : scrollDimensions;
     const cursor = user.presence?.cursor
