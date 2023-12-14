@@ -7,9 +7,11 @@ import { usePresenceWithCursors } from "./use-cursors";
 // The pointer SVG is from https://github.com/daviddarnes/mac-cursors
 // The license is the Apple User Agreement
 
-const USE_CHAT = false;
-
-export default function Cursor(props: { userId: string; fill: string }) {
+export default function Cursor(props: {
+  userId: string;
+  fill: string;
+  showChat: boolean;
+}) {
   const user: User | null = usePresenceWithCursors(
     (state) => state.otherUsers.get(props.userId) || null
   );
@@ -27,7 +29,7 @@ export default function Cursor(props: { userId: string; fill: string }) {
   const flag = cursor.country ? `${countryCodeEmoji(cursor.country)} ` : "";
 
   const styles =
-    !USE_CHAT || cursor.message !== null
+    !props.showChat || cursor.message !== null
       ? {
           opacity: 1.0,
           zIndex: 1001,

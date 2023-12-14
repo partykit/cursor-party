@@ -15,7 +15,7 @@ function App() {
       host={PARTYKIT_HOST}
       room={pageId}
       presence={{
-        name: "Anonymous DJ",
+        name: "Anonymous User",
         color: "#0000f0",
       }}
     >

@@ -106,6 +106,10 @@ Now you can test your website. Open two browsers to your website and you should 
 
 Run `git pull` periodically in your working directory for new features and fixtures. Also run `npm install` to keep the dependencies up to date.
 
+## Adding secret cursor chat
+
+- In `src/presence/Cursors.tsx` set `ENABLE_CHAT = true`. Now users can type `/` to use cursor chat.
+
 ## Customizing the display of the cursors
 
 You can modify the code in this repo to change the display of the cursors. You'll need to be familiar with JavaScript and CSS.
