@@ -4,10 +4,12 @@ import { usePresence } from "./presence-context";
 
 const styles: Record<string, React.CSSProperties> = {
   container: {
+    boxSizing: "border-box",
     position: "fixed",
     bottom: "24px",
     right: "32px",
     padding: "8px",
+    height: "48px",
     borderRadius: "24px",
     minWidth: "4.4em",
     backgroundColor: "rgba(52, 199, 89, 1)",
@@ -19,9 +21,9 @@ const styles: Record<string, React.CSSProperties> = {
     fontFamily:
       'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     fontWeight: 320,
-    height: "32px",
   },
   input: {
+    boxSizing: "border-box",
     padding: "0px 4px 0px 4px",
     margin: "0px",
     fontSize: "24px",
@@ -29,17 +31,17 @@ const styles: Record<string, React.CSSProperties> = {
     whiteSpace: "nowrap",
   },
   button: {
+    boxSizing: "border-box",
     width: "32px",
     height: "32px",
-    boxSizing: "border-box",
     borderRadius: "50%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     fontSize: "24px",
-    paddingBottom: "2px",
-    paddingLeft: "1px",
     fontWeight: 250,
+    padding: "0px",
+    margin: "0px",
     border: "0.5px solid rgba(255,255,255,0.75)",
     cursor: "pointer",
     color: "white",
