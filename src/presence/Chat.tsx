@@ -33,10 +33,13 @@ const styles: Record<string, React.CSSProperties> = {
     height: "32px",
     boxSizing: "border-box",
     borderRadius: "50%",
-    paddingBottom: "5px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     fontSize: "24px",
+    paddingBottom: "2px",
+    paddingLeft: "1px",
     fontWeight: 250,
-    lineHeight: "20px",
     border: "0.5px solid rgba(255,255,255,0.75)",
     cursor: "pointer",
     color: "white",
@@ -127,8 +130,8 @@ export default function Chat() {
   if (listening || message) {
     return (
       <div style={styles.container}>
-        <p style={styles.input}>{message ? message : "..."}</p>
-        <button
+        <div style={styles.input}>{message ? message : "..."}</div>
+        <div
           style={styles.button}
           onClick={() => {
             setListening(false);
@@ -136,13 +139,13 @@ export default function Chat() {
           }}
         >
           &times;
-        </button>
+        </div>
       </div>
     );
   } else if (showCTA) {
     return (
       <div style={styles.container}>
-        <p style={styles.input}>Type / to reply</p>
+        <div style={styles.input}>Type / to reply</div>
       </div>
     );
   }

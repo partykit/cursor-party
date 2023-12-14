@@ -15,10 +15,11 @@
       "splitting": false
     },
     "minify": true,
-    "singlePageApp": true
+    "singlePageApp": true,
+    "browserTTL": 0,
+    "edgeTTL": null
   },
   "build": {
     "command": "node scripts/splash-script.mjs"
-  },
-  "team": "labs"
+  }
 }

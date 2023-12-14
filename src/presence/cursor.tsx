@@ -80,8 +80,8 @@ export default function Cursor(props: {
             borderRadius: "16px 16px 16px 16px",
             whiteSpace: "nowrap",
             backgroundColor: "rgba(52,199,89,1)", // or props.fill,
-            top: "18px",
-            left: "20px",
+            top: "17px",
+            left: "22px",
           }}
         >
           {cursor.message}
