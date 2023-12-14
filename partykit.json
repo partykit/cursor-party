@@ -19,5 +19,6 @@
   },
   "build": {
     "command": "node scripts/splash-script.mjs"
-  }
+  },
+  "team": "labs"
 }

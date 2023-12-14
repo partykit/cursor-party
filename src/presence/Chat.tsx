@@ -2,12 +2,65 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { usePresence } from "./presence-context";
 
+const styles: Record<string, React.CSSProperties> = {
+  container: {
+    position: "fixed",
+    bottom: "24px",
+    right: "32px",
+    padding: "8px",
+    borderRadius: "24px",
+    minWidth: "4.4em",
+    backgroundColor: "rgba(52, 199, 89, 1)",
+    color: "white",
+    display: "flex",
+    justifyContent: "end",
+    alignItems: "center",
+    gap: "8px",
+    fontFamily:
+      'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    fontWeight: 320,
+    height: "32px",
+  },
+  input: {
+    padding: "0px 4px 0px 4px",
+    margin: "0px",
+    fontSize: "24px",
+    lineHeight: 1,
+    whiteSpace: "nowrap",
+  },
+  button: {
+    width: "32px",
+    height: "32px",
+    boxSizing: "border-box",
+    borderRadius: "50%",
+    paddingBottom: "5px",
+    fontSize: "24px",
+    fontWeight: 250,
+    lineHeight: "20px",
+    border: "0.5px solid rgba(255,255,255,0.75)",
+    cursor: "pointer",
+    color: "white",
+    backgroundColor: "transparent",
+  },
+};
+
 export default function Chat() {
   const [listening, setListening] = useState(false);
   const [message, setMessage] = useState<string>("");
-  const { updatePresence } = usePresence((state) => {
+  const { updatePresence, showCTA } = usePresence((state) => {
+    // Go through state.otherUsers.message and set showCTA to true if any of them have a non-null, non-empty message
+    const otherUsers = Array.from(state.otherUsers.values());
+    let showCTA = false;
+    for (const user of otherUsers) {
+      if (user.presence?.message) {
+        showCTA = true;
+        break;
+      }
+    }
+
     return {
       updatePresence: state.updatePresence,
+      showCTA,
     };
   });
 
@@ -73,23 +126,23 @@ export default function Chat() {
 
   if (listening || message) {
     return (
-      <div
-        style={{
-          position: "fixed",
-          fontSize: "16px",
-          color: "white",
-          borderRadius: "9999px",
-          whiteSpace: "nowrap",
-          backgroundColor: "#00f",
-          paddingTop: "6px",
-          paddingBottom: "6px",
-          paddingLeft: "12px",
-          paddingRight: "12px",
-          top: "6px",
-          left: "6px",
-        }}
-      >
-        {message ? message : "..."}
+      <div style={styles.container}>
+        <p style={styles.input}>{message ? message : "..."}</p>
+        <button
+          style={styles.button}
+          onClick={() => {
+            setListening(false);
+            setMessage("");
+          }}
+        >
+          &times;
+        </button>
+      </div>
+    );
+  } else if (showCTA) {
+    return (
+      <div style={styles.container}>
+        <p style={styles.input}>Type / to reply</p>
       </div>
     );
   }

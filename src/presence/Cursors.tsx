@@ -8,7 +8,7 @@ export default function Cursors() {
   return (
     <>
       <OtherCursors />
-      <Chat />
+      {/*<Chat />*/}
     </>
   );
 }

@@ -7,6 +7,8 @@ import { usePresenceWithCursors } from "./use-cursors";
 // The pointer SVG is from https://github.com/daviddarnes/mac-cursors
 // The license is the Apple User Agreement
 
+const USE_CHAT = false;
+
 export default function Cursor(props: { userId: string; fill: string }) {
   const user: User | null = usePresenceWithCursors(
     (state) => state.otherUsers.get(props.userId) || null
@@ -24,24 +26,31 @@ export default function Cursor(props: { userId: string; fill: string }) {
   const offset = 10;
   const flag = cursor.country ? `${countryCodeEmoji(cursor.country)} ` : "";
 
-  const hasMessage = cursor.message !== null;
+  const styles =
+    !USE_CHAT || cursor.message !== null
+      ? {
+          opacity: 1.0,
+          zIndex: 1001,
+        }
+      : {
+          filter: "blur(1px)",
+          opacity: 0.7,
+          zIndex: -1,
+        };
 
   return (
     <div
       style={{
         position: "absolute",
         transform: `translate(${cursor.x - offset}px, ${cursor.y - offset}px`,
-        opacity: hasMessage ? 1.0 : 0.7,
-        zIndex: hasMessage ? 1001 : -1,
+        ...styles,
       }}
     >
-      <div style={hasMessage ? {} : { filter: "blur(1px)" }}>
-        {cursor.pointer === "mouse" ? (
-          <MousePointer fill={props.fill} />
-        ) : (
-          <TouchPointer fill={props.fill} />
-        )}
-      </div>
+      {cursor.pointer === "mouse" ? (
+        <MousePointer fill={props.fill} />
+      ) : (
+        <TouchPointer fill={props.fill} />
+      )}
       {cursor.message === null && cursor.country !== null && (
         <div
           style={{
@@ -51,7 +60,6 @@ export default function Cursor(props: { userId: string; fill: string }) {
             fontSize: "24px",
             top: "10px",
             left: "16px",
-            filter: "blur(1px)",
           }}
         >
           {flag}
@@ -61,15 +69,15 @@ export default function Cursor(props: { userId: string; fill: string }) {
         <div
           style={{
             position: "absolute",
-            fontSize: "12px",
+            fontSize: "16px",
+            fontStyle: "normal",
+            fontFamily:
+              'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
             color: "white",
-            borderRadius: "9999px",
+            padding: "0.4em 0.8em 0.45em",
+            borderRadius: "16px 16px 16px 16px",
             whiteSpace: "nowrap",
-            backgroundColor: props.fill,
-            paddingTop: "4px",
-            paddingBottom: "4px",
-            paddingLeft: "8px",
-            paddingRight: "8px",
+            backgroundColor: "rgba(52,199,89,1)", // or props.fill,
             top: "18px",
             left: "20px",
           }}
