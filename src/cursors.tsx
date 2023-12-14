@@ -32,6 +32,7 @@ function App() {
         color: "#0000f0",
       }}
     >
+      <div className={classes.x}>Test CSS modules (should have red border)</div>
       <Cursors />
     </PresenceProvider>
   );
