@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/styles.module.css"],
+  "sourcesContent": [".x {\n  border: 1px solid red;\n}\n"],
+  "mappings": ";AAAA,CAACA;AACC,UAAQ,IAAI,MAAM;AACpB;",
+  "names": ["x"]
+}
