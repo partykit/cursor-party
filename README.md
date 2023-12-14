@@ -102,13 +102,15 @@ Now you can test your website. Open two browsers to your website and you should 
 
 🎈 You're done!
 
+BONUS SECRET FEATURE: type `/` to cursor chat with other users.
+
 ### Stay up to date
 
 Run `git pull` periodically in your working directory for new features and fixtures. Also run `npm install` to keep the dependencies up to date.
 
-## Adding secret cursor chat
+## Disabling secret cursor chat
 
-- In `src/presence/Cursors.tsx` set `ENABLE_CHAT = true`. Now users can type `/` to use cursor chat.
+- In `src/presence/Cursors.tsx` set `ENABLE_CHAT = false`
 
 ## Customizing the display of the cursors
 
