@@ -10,6 +10,9 @@
         "react": "@preact/compat",
         "react-dom": "@preact/compat"
       },
+      "loaders": {
+        ".module.css": "local-css"
+      },
       "outdir": "public",
       "format": "iife",
       "splitting": false
